@@ -161,7 +161,6 @@ public class userProfile extends AppCompatActivity {
         goalIn.setText(gString, TextView.BufferType.EDITABLE);
     }
 
-
     /*
      * calculateBMI()
      * This method calculates the BMI and sets global variables for weight, height, age, and

@@ -40,9 +40,6 @@ import java.util.List;
 import java.util.Map;
 
 
-//Crystal: I commented out some stuff just in case things go wrong
-//I know what the original code looked like; we can clean up later!
-
 public class calories extends AppCompatActivity {
 
     private EditText foodIn, calIn;
@@ -50,21 +47,6 @@ public class calories extends AppCompatActivity {
     public Hashtable<String, String> foods = new Hashtable<String, String>();
 
     public final static String ID_EXTRA = "com.edngai.healthkit._ID";
-
-    /**
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calories);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        String[] days = {"Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, days);
-        ListView listView = (ListView) findViewById(R.id.listView);
-        listView.setAdapter(adapter);
-
-    }*/
 
     private Toolbar toolbar;                              // Declaring the Toolbar Object
 
@@ -100,37 +82,14 @@ public class calories extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        /*int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-        }*/
 
         switch (item.getItemId()) {
             case R.id.add_calories:
                 showInputDialog();
-            /**
-                 Toast.makeText(this, "Menu Item 1 selected", Toast.LENGTH_SHORT)
-                        .show();
-                break;
-            case R.id.menuitem2:
-                Toast.makeText(this, "Menu item 2 selected", Toast.LENGTH_SHORT)
-                        .show();
-                break;
-            */
             default:
                 break;
         }
-
         return true;
-
     }
 
     private TextView resultText;
@@ -157,7 +116,6 @@ public class calories extends AppCompatActivity {
                         String calories = ((EditText) promptView.findViewById(R.id.edittext2)).getText().toString();
 
                         if (food.length() == 0) {
-                            //foodIn.requestFocus();
                             builder1.setMessage("ERROR: INPUT CANNOT BE EMPTY");
 
                             builder1.setCancelable(true);
@@ -171,8 +129,6 @@ public class calories extends AppCompatActivity {
                             android.support.v7.app.AlertDialog alert11 = builder1.create();
                             alert11.show();
                         } else if (calories.length() == 0) {
-                            //calIn.requestFocus();
-                            //calIn.setError("CALORIE FIELD CANNOT BE EMPTY");
                             builder1.setMessage("ERROR: INPUT CANNOT BE EMPTY");
 
                             builder1.setCancelable(true);
@@ -190,13 +146,9 @@ public class calories extends AppCompatActivity {
                             AlertDialog.Builder addCalories = new AlertDialog.Builder(calories.this);
                             addCalories.setTitle("Confirm");
                             addCalories.setMessage("Are you sure this is correct?");
-                            //some code to display food item and calories in the dialog!!!
                             addCalories.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    //IMPLEMENT SAVING OF INFO HERE!!!
-                                    //!!!
-                                    //!!!
-
+                                    // save info to Parse here
                                     String food = ((EditText) promptView.findViewById(R.id.edittext)).getText().toString();
                                     String calories = ((EditText) promptView.findViewById(R.id.edittext2)).getText().toString();
                                     Calendar c = Calendar.getInstance();
@@ -256,7 +208,6 @@ public class calories extends AppCompatActivity {
 
         }
     };
-
 
 
 }
